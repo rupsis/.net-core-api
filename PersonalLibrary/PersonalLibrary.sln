@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalLibrary", "PersonalLibrary\PersonalLibrary.csproj", "{7973B221-14E1-48D8-9B50-9BB2B7EC8848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalLibrary.API", "PersonalLibrary.API\PersonalLibrary.API.csproj", "{0A67CA90-1A70-419A-B968-D61E7FD245D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7973B221-14E1-48D8-9B50-9BB2B7EC8848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7973B221-14E1-48D8-9B50-9BB2B7EC8848}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7973B221-14E1-48D8-9B50-9BB2B7EC8848}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7973B221-14E1-48D8-9B50-9BB2B7EC8848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A67CA90-1A70-419A-B968-D61E7FD245D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A67CA90-1A70-419A-B968-D61E7FD245D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A67CA90-1A70-419A-B968-D61E7FD245D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A67CA90-1A70-419A-B968-D61E7FD245D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
