@@ -11,10 +11,11 @@ namespace PersonalLibrary.API.Entities
         public LibraryContext(DbContextOptions<LibraryContext> options)
             :base(options)
         {
-         
+            Database.Migrate();
         }
 
-        public DbSet<Author> Authors { get; set; }
+        public DbSet<Author> Authors { get; set; } 
         public DbSet<Book> Books { get; set; }
     }
 }
+ 
