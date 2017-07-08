@@ -1,2 +1,3 @@
-/PersonalLibrary/PersonalLibrary.API/bin
-/PersonalLibrary/PersonalLibrary.API/obj
+/PersonalLibrary/PersonalLibrary.API/bin/*
+/PersonalLibrary/PersonalLibrary.API/obj/*
+

@@ -35,7 +35,7 @@ namespace PersonalLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LibraryContext>(options => 
-                                    options.UseSqlServer(_Configuration.GetConnectionString("DefaultConnection")));
+                                    options.UseSqlServer(_Configuration.GetConnectionString("personalLibraryDBConnectionString")));
 
             services.AddMvcCore();
         }
