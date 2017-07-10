@@ -9,9 +9,19 @@ namespace PersonalLibrary.API.Repositories
 {
     public class LibraryRepository : ILibraryRepository
     {
+        private LibraryContext _libraryContext;
+
+        public LibraryRepository(LibraryContext libraryContext)
+        {
+            _libraryContext = libraryContext;
+        }
         public void AddAuthor(Author author)
         {
-            throw new NotImplementedException();
+            author.Id = new Guid();
+
+            _libraryContext.Authors.Add(author);
+
+
         }
 
         public void AddBookForAuthor(Guid authorId, Guid bookId)

@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using PersonalLibrary.API.Entities;
+using PersonalLibrary.API.Interfaces;
+using PersonalLibrary.API.Repositories;
 
 namespace PersonalLibrary
 {
@@ -36,12 +38,13 @@ namespace PersonalLibrary
         {
             services.AddDbContext<LibraryContext>(options => 
                                     options.UseSqlServer(_Configuration.GetConnectionString("personalLibraryDBConnectionString")));
-
+            services.AddScoped<ILibraryRepository, LibraryRepository>();
             services.AddMvcCore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) 
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, 
+            ILoggerFactory loggerFactory, LibraryContextSeedData seed) 
         {
             loggerFactory.AddConsole();
              
@@ -49,13 +52,14 @@ namespace PersonalLibrary
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+                app.UseExceptionHandler();
+            }
+
+            seed.EnsureSeedDataForContext();
+
+            app.UseMvc();
         }
     }
 }
