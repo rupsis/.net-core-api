@@ -20,6 +20,7 @@ namespace PersonalLibrary.API.Interfaces
         void AddBookForAuthor(Guid authorId, Book book);
         void UpdateBookForAuthor(Book book);
         void DeleteBookForAuthor(Book book);
+        void DeleteBook(Book book);
         bool Save();
     }
 }

@@ -38,22 +38,27 @@ namespace PersonalLibrary.API.Repositories
 
         public bool AuthorExists(Guid authorId)
         {
-            throw new NotImplementedException();
+            return _libraryContext.Authors.Any(a => a.Id == authorId);
         }
 
         public void DeleteAuthor(Author author)
         {
-            throw new NotImplementedException();
+            _libraryContext.Authors.Remove(author);
+        }
+
+        public void DeleteBook(Book book)
+        {
+            _libraryContext.Books.Remove(book);
         }
 
         public void DeleteBookForAuthor(Book book)
         {
-            throw new NotImplementedException();
+            _libraryContext.Books.Remove(book);
         }
 
         public Author GetAuthor(Guid authorId)
         {
-            throw new NotImplementedException();
+            return _libraryContext.Authors.FirstOrDefault(a => a.Id == authorId);
         }
 
         public IEnumerable<Author> GetAuthors()
