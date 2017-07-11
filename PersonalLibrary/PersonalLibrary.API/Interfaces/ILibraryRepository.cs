@@ -17,7 +17,7 @@ namespace PersonalLibrary.API.Interfaces
         bool AuthorExists(Guid authorId);
         IEnumerable<Book> GetBooksForAuthor(Guid authorId);
         Book GetBookForAuthor(Guid authorId, Guid bookId);
-        void AddBookForAuthor(Guid authorId, Guid bookId);
+        void AddBookForAuthor(Guid authorId, Book book);
         void UpdateBookForAuthor(Book book);
         void DeleteBookForAuthor(Book book);
         bool Save();

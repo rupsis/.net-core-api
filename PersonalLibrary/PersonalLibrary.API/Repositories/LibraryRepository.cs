@@ -20,13 +20,20 @@ namespace PersonalLibrary.API.Repositories
             author.Id = new Guid();
 
             _libraryContext.Authors.Add(author);
-
-
         }
 
-        public void AddBookForAuthor(Guid authorId, Guid bookId)
+        public void AddBookForAuthor(Guid authorId, Book book)
         {
-            throw new NotImplementedException();
+            var author = GetAuthor(authorId);
+            if(author != null)
+            {
+                // generate id if none is provided
+                if (book.Id == null)
+                {
+                    book.Id = new Guid();
+                }
+                author.Books.Add(book);
+            }
         }
 
         public bool AuthorExists(Guid authorId)
