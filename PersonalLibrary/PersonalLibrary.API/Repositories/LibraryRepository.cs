@@ -63,27 +63,30 @@ namespace PersonalLibrary.API.Repositories
 
         public IEnumerable<Author> GetAuthors()
         {
-            throw new NotImplementedException();
+            return _libraryContext.Authors.OrderBy(a => a.FirstName).ThenBy(a => a.LastName);
         }
 
         public IEnumerable<Author> GetAuthors(IEnumerable<Guid> authorIds)
         {
-            throw new NotImplementedException();
+            return _libraryContext.Authors.Where(a => authorIds.Contains(a.Id))
+                .OrderBy(a => a.FirstName)
+                .ThenBy(a => a.LastName)
+                .ToList();
         }
 
         public Book GetBookForAuthor(Guid authorId, Guid bookId)
         {
-            throw new NotImplementedException();
+            return _libraryContext.Books.Where(b => b.AuthorId == authorId && b.Id == bookId).FirstOrDefault();
         }
 
         public IEnumerable<Book> GetBooksForAuthor(Guid authorId)
         {
-            throw new NotImplementedException();
+            return _libraryContext.Books.Where(b => b.AuthorId == authorId).OrderBy(b => b.Title).ToList();
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return (_libraryContext.SaveChanges() >= 0);
         }
 
         public void UpdateAuthor(Author author)
