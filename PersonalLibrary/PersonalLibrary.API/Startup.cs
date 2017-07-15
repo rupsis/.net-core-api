@@ -39,7 +39,8 @@ namespace PersonalLibrary
             services.AddDbContext<LibraryContext>(options => 
                                     options.UseSqlServer(_Configuration.GetConnectionString("personalLibraryDBConnectionString")));
             services.AddScoped<ILibraryRepository, LibraryRepository>();
-            services.AddMvcCore();
+            services.AddTransient<LibraryContextSeedData>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

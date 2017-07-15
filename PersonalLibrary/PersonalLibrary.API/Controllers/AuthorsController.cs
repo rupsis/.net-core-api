@@ -4,21 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PersonalLibrary.API.Repositories;
+using PersonalLibrary.API.Interfaces;
 
 namespace PersonalLibrary.API.Controllers
 {
     public class AuthorsController : Controller
     {
-        private LibraryRepository _libraryRepository;
+        private ILibraryRepository _libraryRepository;
 
-        public AuthorsController(LibraryRepository libraryRepository)
+        public AuthorsController(ILibraryRepository libraryRepository)
         {
             _libraryRepository = libraryRepository;
         }
+
+        [HttpGet("api/authors")]
         public IActionResult GetAuthors()
         {
             var authorsFromRepo = _libraryRepository.GetAuthors();
             return new JsonResult(authorsFromRepo);
+            //return new JsonResult("{test:test}"); 
         }
     }
 }
