@@ -10,6 +10,7 @@ using AutoMapper;
 
 namespace PersonalLibrary.API.Controllers
 {
+    [Route("api/authors")]
     public class AuthorsController : Controller
     {
         private ILibraryRepository _libraryRepository;
@@ -19,14 +20,30 @@ namespace PersonalLibrary.API.Controllers
             _libraryRepository = libraryRepository;
         }
 
-        [HttpGet("api/authors")]
+        [HttpGet()]
         public IActionResult GetAuthors()
         {
             var authorsFromRepo = _libraryRepository.GetAuthors();
 
             var authors = Mapper.Map<IEnumerable<Core.Models.Author>>(authorsFromRepo);
-                
-            return new JsonResult(authors);
+
+            return Ok(authors);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetAuthor(Guid id)
+        {
+            
+            var authorFromRepo = _libraryRepository.GetAuthor(id);
+
+
+            if (authorFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var author = Mapper.Map<Core.Models.Author>(authorFromRepo);
+            return Ok(author);
         }
     }
 }
