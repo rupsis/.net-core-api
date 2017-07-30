@@ -1,6 +1,0 @@
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\bin\Debug\netcoreapp1.1\PersonalLibrary.deps.json
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\bin\Debug\netcoreapp1.1\PersonalLibrary.runtimeconfig.json
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\bin\Debug\netcoreapp1.1\PersonalLibrary.runtimeconfig.dev.json
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\bin\Debug\netcoreapp1.1\PersonalLibrary.dll
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\obj\Debug\netcoreapp1.1\PersonalLibrary.csprojResolveAssemblyReference.cache
-C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\PersonalLibrary\obj\Debug\netcoreapp1.1\PersonalLibrary.AssemblyInfo.cs
