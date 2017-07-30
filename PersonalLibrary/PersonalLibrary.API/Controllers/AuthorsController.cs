@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PersonalLibrary.API.Repositories;
 using PersonalLibrary.API.Interfaces;
+using PersonalLibrary.API.Helpers;
 
 namespace PersonalLibrary.API.Controllers
 {
@@ -21,8 +22,21 @@ namespace PersonalLibrary.API.Controllers
         public IActionResult GetAuthors()
         {
             var authorsFromRepo = _libraryRepository.GetAuthors();
-            return new JsonResult(authorsFromRepo);
-            //return new JsonResult("{test:test}"); 
+
+            var authors = new List<Core.Models.Author>();
+
+            foreach (var author in authorsFromRepo)
+            {
+                authors.Add(new Core.Models.Author()
+                {
+                    Id = author.Id,
+                    Name = $"{author.FirstName} {author.LastName}",
+                    Genre = author.Genre,
+                    Age = author.DateOfBirth.GetCurrentAge()
+                });
+            }
+           
+            return new JsonResult(authors);
         }
     }
 }

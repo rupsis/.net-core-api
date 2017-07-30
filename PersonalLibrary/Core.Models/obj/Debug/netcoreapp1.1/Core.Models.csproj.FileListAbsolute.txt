@@ -1,0 +1,7 @@
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\bin\Debug\netcoreapp1.1\Core.Models.deps.json
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\bin\Debug\netcoreapp1.1\Core.Models.dll
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\bin\Debug\netcoreapp1.1\Core.Models.pdb
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\obj\Debug\netcoreapp1.1\Core.Models.csprojResolveAssemblyReference.cache
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\obj\Debug\netcoreapp1.1\Core.Models.AssemblyInfo.cs
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\obj\Debug\netcoreapp1.1\Core.Models.dll
+C:\Users\Nate\OneDrive\asp.net\Restful Api\.net-core-api\PersonalLibrary\Core.Models\obj\Debug\netcoreapp1.1\Core.Models.pdb
