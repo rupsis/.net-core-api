@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PersonalLibrary.API.Repositories;
 using PersonalLibrary.API.Interfaces;
 using PersonalLibrary.API.Helpers;
+using AutoMapper;
 
 namespace PersonalLibrary.API.Controllers
 {
@@ -23,19 +24,8 @@ namespace PersonalLibrary.API.Controllers
         {
             var authorsFromRepo = _libraryRepository.GetAuthors();
 
-            var authors = new List<Core.Models.Author>();
-
-            foreach (var author in authorsFromRepo)
-            {
-                authors.Add(new Core.Models.Author()
-                {
-                    Id = author.Id,
-                    Name = $"{author.FirstName} {author.LastName}",
-                    Genre = author.Genre,
-                    Age = author.DateOfBirth.GetCurrentAge()
-                });
-            }
-           
+            var authors = Mapper.Map<IEnumerable<Core.Models.Author>>(authorsFromRepo);
+                
             return new JsonResult(authors);
         }
     }

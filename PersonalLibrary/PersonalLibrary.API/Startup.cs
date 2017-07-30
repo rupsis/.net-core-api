@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonalLibrary.API.Entities;
 using PersonalLibrary.API.Interfaces;
 using PersonalLibrary.API.Repositories;
+using PersonalLibrary.API.Helpers;
 
 namespace PersonalLibrary
 {
@@ -57,6 +58,15 @@ namespace PersonalLibrary
             {
                 app.UseExceptionHandler();
             }
+
+            AutoMapper.Mapper.Initialize(cfg => 
+            {
+                cfg.CreateMap<API.Entities.Author, Core.Models.Author>()
+                    .ForMember(dest => dest.Name, opt => opt.MapFrom(src =>
+                    $"{src.FirstName} {src.LastName}"))
+                    .ForMember(dest => dest.Age, opt => opt.MapFrom(src =>
+                    src.DateOfBirth.GetCurrentAge()));
+            });
 
             seed.EnsureSeedDataForContext();
 
