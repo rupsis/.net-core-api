@@ -1,0 +1,5 @@
+/PersonalLibrary/PersonalLibrary.API/bin/*
+PersonalLibrary/PersonalLibrary.API/obj/*
+/PersonalLibrary/PersonalLibrary.API/appsettings.json
+PersonalLibrary/.vs
+PersonalLibrary/PersonalLibrary.API/obj
