@@ -66,7 +66,8 @@ namespace PersonalLibrary
                 });
 
             }
-
+            
+            //define configuration details for automapper
             AutoMapper.Mapper.Initialize(cfg => 
             {
                 cfg.CreateMap<API.Entities.Author, Core.Models.Author>()
@@ -74,6 +75,8 @@ namespace PersonalLibrary
                     $"{src.FirstName} {src.LastName}"))
                     .ForMember(dest => dest.Age, opt => opt.MapFrom(src =>
                     src.DateOfBirth.GetCurrentAge()));
+
+                cfg.CreateMap<API.Entities.Book, Core.Models.Book>();
             });
 
             seed.EnsureSeedDataForContext();
