@@ -14,6 +14,7 @@ using PersonalLibrary.API.Entities;
 using PersonalLibrary.API.Interfaces;
 using PersonalLibrary.API.Repositories;
 using PersonalLibrary.API.Helpers;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace PersonalLibrary
 {
@@ -44,6 +45,7 @@ namespace PersonalLibrary
             services.AddMvc(setupAction =>
             {
                 setupAction.ReturnHttpNotAcceptable = true;
+                setupAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
             });
         }
 
