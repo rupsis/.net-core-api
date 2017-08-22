@@ -31,7 +31,7 @@ namespace PersonalLibrary.API.Controllers
             return Ok(authors);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetAuthor")]
         public IActionResult GetAuthor(Guid id)
         {
             
@@ -45,6 +45,32 @@ namespace PersonalLibrary.API.Controllers
 
             var author = Mapper.Map<Core.Models.Author>(authorFromRepo);
             return Ok(author);
+        }
+
+        [HttpPost]
+        public IActionResult CreateAuthor([FromBody] Core.Models.AuthorForCreation author)
+        {
+            
+            if(author == null)
+            {
+                return BadRequest();
+            }
+
+            var authorEntity = Mapper.Map<API.Entities.Author>(author);
+
+            // this adds the author to the dbcontext (db session)
+            _libraryRepository.AddAuthor(authorEntity);
+
+            if (!_libraryRepository.Save())
+            {
+                System.Console.WriteLine("DUR DE HERP");
+                throw new Exception("Creating an author failed on save");
+            }
+
+            var authorToReturn = Mapper.Map<Core.Models.Author>(authorEntity);
+
+            // return the route name, value, and object 
+            return CreatedAtRoute("GetAuthor", new { id = authorToReturn.Id}, authorToReturn);
         }
     }
 }

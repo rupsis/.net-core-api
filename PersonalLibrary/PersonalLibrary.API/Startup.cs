@@ -82,6 +82,8 @@ namespace PersonalLibrary
                     src.DateOfBirth.GetCurrentAge()));
 
                 cfg.CreateMap<API.Entities.Book, Core.Models.Book>();
+
+                cfg.CreateMap<Core.Models.AuthorForCreation, API.Entities.Author>();
             });
 
             seed.EnsureSeedDataForContext();
