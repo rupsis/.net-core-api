@@ -84,6 +84,8 @@ namespace PersonalLibrary
                 cfg.CreateMap<API.Entities.Book, Core.Models.Book>();
 
                 cfg.CreateMap<Core.Models.AuthorForCreation, API.Entities.Author>();
+
+                cfg.CreateMap<Core.Models.BookForCreation, API.Entities.Book>();
             });
 
             seed.EnsureSeedDataForContext();

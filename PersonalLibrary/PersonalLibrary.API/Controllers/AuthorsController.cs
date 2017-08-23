@@ -63,7 +63,6 @@ namespace PersonalLibrary.API.Controllers
 
             if (!_libraryRepository.Save())
             {
-                System.Console.WriteLine("DUR DE HERP");
                 throw new Exception("Creating an author failed on save");
             }
 

@@ -33,7 +33,7 @@ namespace PersonalLibrary.API.Controllers
             return Ok(booksForAuthors);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="GetBookForAuthor")]
         public IActionResult GetBookForAuthor(Guid authorId, Guid id)
         {
             if (!_libraryRepository.AuthorExists(authorId))
@@ -43,7 +43,7 @@ namespace PersonalLibrary.API.Controllers
 
             var bookForAuthorFromRepo = _libraryRepository.GetBookForAuthor(authorId, id);
 
-            if(bookForAuthorFromRepo == null)
+            if (bookForAuthorFromRepo == null)
             {
                 return NotFound();
             }
@@ -53,5 +53,31 @@ namespace PersonalLibrary.API.Controllers
             return Ok(booksForAuthors);
         }
 
+        [HttpPost]
+        public IActionResult CreateBookForAuthor(Guid authorId, [FromBody] Core.Models.BookForCreation book)
+        {
+            if (book == null)
+            {
+                return BadRequest();
+            }
+
+            if (!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var bookEntity = Mapper.Map<API.Entities.Book>(book);
+
+            _libraryRepository.AddBookForAuthor(authorId, bookEntity);
+
+            if (!_libraryRepository.Save())
+            {
+                throw new Exception($"Creating a book for {authorId} failed on save");
+            }
+
+            var bookToReturn = Mapper.Map<Core.Models.Book>(bookEntity);
+            return CreatedAtRoute("GetBookForAuthor", new { authorId = authorId, id = bookToReturn.Id }, bookToReturn);
+        }
+    
     }
 }
