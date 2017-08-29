@@ -13,5 +13,9 @@ namespace Core.Models
         public string LastName { get; set; }
         public DateTimeOffset DateOfBirth { get; set; }
         public string Genre { get; set; }
+
+        // intilize an empty list to protect against a null reference exception
+        public ICollection<BookForCreation> Books { get; set; }
+        = new List<BookForCreation>();
     }
 }
