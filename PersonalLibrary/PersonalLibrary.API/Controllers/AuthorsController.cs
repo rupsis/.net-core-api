@@ -71,5 +71,15 @@ namespace PersonalLibrary.API.Controllers
             // return the route name, value, and object 
             return CreatedAtRoute("GetAuthor", new { id = authorToReturn.Id}, authorToReturn);
         }
+
+        [HttpPost("{id}")]
+        public IActionResult BlockAuthorCreation(Guid id)
+        {
+            if (_libraryRepository.AuthorExists(id))
+            {
+                return StatusCode(409);
+            }
+            return BadRequest();
+        }
     }
 }
